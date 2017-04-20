@@ -1,31 +1,28 @@
 
 var cards = ["queen", "queen", "king", "king"];
 var cardsInPlay = [];
-var cardOne = cards[0];
-var cardTwo = cards[3];
 
-
-cardsInPlay.push(cardOne);
-cardsInPlay.push(cardTwo);
-
-if (cardsInPlay.length = 2) {
+var checkForMatch = function () {
+if (cardsInPlay.length === 2) {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
 		alert("Thats why I love you");
 	}
-else if (cardsInPlay[0] !== cardsInPlay[1]) {
+    else {
 	alert("You failure of a human being. You failed!");
 }
 }
+}
 
+var flipCard = function (cardId) {
+	
+console.log("User flipped " + cards[cardId]);
+cardsInPlay.push(cards[cardId]);
+checkForMatch();
+}
 
+flipCard(2);
+flipCard(3);
 
-
-
-
-console.log("User flipped king");
-
-
-console.log("User flipped queen");
 
 
 
