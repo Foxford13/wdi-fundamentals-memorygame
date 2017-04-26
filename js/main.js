@@ -24,10 +24,10 @@ var cards = [
 ];
 
 
-
 var cardsInPlay = [];
 
 var checkForMatch = function () {
+
 if (cardsInPlay.length === 2) {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
 		alert("Thats why I love you");
@@ -36,19 +36,35 @@ if (cardsInPlay.length === 2) {
 	alert("You failure of a human being. You failed!");
 }
 }
-}
+};
+var randomCard = Math.floor(Math.random() * 4);
 
-var flipCard = function (cardId) {
-	
+var flipCard = function () {
+
+var cardId = this.getAttribute("data-id");
+
+
+this.setAttribute('src', cards[cardId].cardImage);	
 console.log("User flipped " + cards[cardId].rank);
 cardsInPlay.push(cards[cardId].rank);
-checkForMatch();
+
 console.log(cards[cardId].cardImage);
 console.log(cards[cardId].suit);
-}
+checkForMatch();
+};
 
-flipCard(1);
-flipCard(3);
+var createBoard = function () {
+ for (var i = 0; i < cards.length; i++) {
+var cardElement = document.createElement("img");
+cardElement.setAttribute("src", "images/back.png");
+cardElement.setAttribute("data-id", i);
+cardElement.addEventListener("click", flipCard);
+document.getElementById("game-board").appendChild(cardElement);
+
+ }
+};
+
+createBoard();
 
 
 
