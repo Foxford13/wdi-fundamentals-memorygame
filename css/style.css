@@ -105,7 +105,16 @@ footer {
 
 
 
+#reset-button {
+	margin-top: 30px;
+	padding: 10px;
+	background-color: ;
+	color: #f15b31;
+	background-color: #00a6b3;
+	font-size: 15px;
+	border-radius: 10px;
 
+}
 
 
 

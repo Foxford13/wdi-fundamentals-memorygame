@@ -7,7 +7,7 @@ var cards = [
 },
 {
 	rank: 'queen',
-	suitarts: 'diamonds',
+	suit: 'diamonds',
 	cardImage: 'images/queen-of-diamonds.png'
 },
 {
@@ -24,6 +24,7 @@ var cards = [
 ];
 
 
+
 var cardsInPlay = [];
 
 var checkForMatch = function () {
@@ -33,25 +34,24 @@ if (cardsInPlay.length === 2) {
 		alert("Thats why I love you");
 	}
     else {
-	alert("You failure of a human being. You failed!");
+	alert("Just how? These cards are always in the same place!");
 }
 }
 };
-var randomCard = Math.floor(Math.random() * 4);
+
 
 var flipCard = function () {
 
 var cardId = this.getAttribute("data-id");
-
-
-this.setAttribute('src', cards[cardId].cardImage);	
-console.log("User flipped " + cards[cardId].rank);
 cardsInPlay.push(cards[cardId].rank);
-
-console.log(cards[cardId].cardImage);
-console.log(cards[cardId].suit);
 checkForMatch();
+this.setAttribute('src', cards[cardId].cardImage);	
+console.log("User flipped " + cards[cardId].rank + " of " + cards[cardId].suit);
+//console.log(cards[cardId].cardImage);
+//console.log(cards[cardId].suit);
 };
+
+
 
 var createBoard = function () {
  for (var i = 0; i < cards.length; i++) {
@@ -61,10 +61,27 @@ cardElement.setAttribute("data-id", i);
 cardElement.addEventListener("click", flipCard);
 document.getElementById("game-board").appendChild(cardElement);
 
+
  }
 };
-
 createBoard();
+
+
+var reset = function () {
+	window.location.reload();
+};
+
+var resetButton = document.getElementById('reset-button');
+resetButton.addEventListener('click', reset);
+
+
+
+
+
+
+
+
+
 
 
 
